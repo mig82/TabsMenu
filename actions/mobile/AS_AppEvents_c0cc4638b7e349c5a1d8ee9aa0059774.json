@@ -1,0 +1,18 @@
+{
+    "AS_AppEvents_c0cc4638b7e349c5a1d8ee9aa0059774": {
+        "id": "AS_AppEvents_c0cc4638b7e349c5a1d8ee9aa0059774",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "language": "js",
+        "actions": [{
+            "id": "ADD_SNIPPET__f56b382ac0b24aa7bb66950f6e63b8d3",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "$q2k.bootstrap();",
+            "parentId": null,
+            "callbackType": null
+        }]
+    }
+}

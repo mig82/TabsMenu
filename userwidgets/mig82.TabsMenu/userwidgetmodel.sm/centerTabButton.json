@@ -1,0 +1,59 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizButton",
+    "DNDConfig": null,
+    "__parentReadjusting__": false,
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_margin_": [
+        6,
+        6,
+        6,
+        6
+    ],
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_skin_": "sfb88b7f02f14b5f875721d2f23b48c2",
+    "_text_": "Center",
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "android": {
+        "psp": {}
+    },
+    "canUpdateUI": true,
+    "containerweight": 100,
+    "contentalignment": 5,
+    "disabledSkins": {
+        "pressedSkin": "s0f1822dc9c848449e02427a92cb0e4c"
+    },
+    "displaytext": true,
+    "focusskin": "s594257bb01948c391dbb0dbdd6ef874",
+    "id": "centerTabButton",
+    "info": null,
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "i55e81f21cbf4d4485ee3a15c8af61ce",
+    "name": "kony.ui.Button",
+    "parent": "centerTabFlex",
+    "pf": "userwidgetmodel",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "texti18n": "title.accounts",
+    "wType": "Button",
+    "zindex": 1
+}

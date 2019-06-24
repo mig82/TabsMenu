@@ -1,0 +1,67 @@
+{
+    "keys": [
+        "title.centre_tab",
+        "title.left_tab",
+        "title.right_tab"
+    ],
+    "locales": {
+        "en_GB": {
+            "i18nStrings": {
+                "title.centre_tab": "Centre",
+                "title.left_tab": "Left",
+                "title.right_tab": "Right"
+            },
+            "isCustomLocale": false,
+            "isSelected": true,
+            "layoutConfig": {
+                "mirrorContentAlignment": false,
+                "mirrorFlexPositionProperties": false,
+                "mirrorFlowHorizontalAlignment": false
+            }
+        },
+        "en_US": {
+            "i18nStrings": {
+                "title.centre_tab": "Center",
+                "title.left_tab": "Left",
+                "title.right_tab": "Right"
+            },
+            "isCustomLocale": false,
+            "isSelected": true,
+            "layoutConfig": {
+                "mirrorContentAlignment": false,
+                "mirrorFlexPositionProperties": false,
+                "mirrorFlowHorizontalAlignment": false
+            }
+        },
+        "es_ES": {
+            "i18nStrings": {
+                "title.centre_tab": "Centro",
+                "title.left_tab": "Izquierda",
+                "title.right_tab": "Derecha"
+            },
+            "isCustomLocale": false,
+            "isSelected": true,
+            "layoutConfig": {
+                "mirrorContentAlignment": false,
+                "mirrorFlexPositionProperties": false,
+                "mirrorFlowHorizontalAlignment": false
+            }
+        },
+        "xx_YY": {
+            "country": "None",
+            "i18nStrings": {
+                "title.centre_tab": "title.centre_tab",
+                "title.left_tab": "title.left_tab",
+                "title.right_tab": "title.right_tab"
+            },
+            "isCustomLocale": true,
+            "isSelected": true,
+            "language": "xx_YY",
+            "layoutConfig": {
+                "mirrorContentAlignment": false,
+                "mirrorFlexPositionProperties": false,
+                "mirrorFlowHorizontalAlignment": false
+            }
+        }
+    }
+}

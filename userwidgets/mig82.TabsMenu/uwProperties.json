@@ -1,0 +1,228 @@
+{
+    "classname": "TabsMenu",
+    "definitions": {
+        "apis": {
+            "custom": [],
+            "passthrough": []
+        },
+        "events": {
+            "custom": [],
+            "passthrough": []
+        },
+        "groups": {
+            "apis": [],
+            "events": [],
+            "properties": [
+                "Tab labels text or i18n keys",
+                "Tab navigation target forms (by friendly name)",
+                "Look & Feel"
+            ],
+            "widgets": []
+        },
+        "properties": {
+            "custom": [
+                {
+                    "access": "Write",
+                    "defaultValue": "",
+                    "group": "Tab navigation target forms (by friendly name)",
+                    "kuid": "d6bed680d6d5428dbd12c1627f0e68c8",
+                    "originalPropertyKey": "centerTabTarget",
+                    "propertyIndex": 1,
+                    "propertyKey": "centerTabTarget",
+                    "pw": {
+                        "displayName": "Center target form",
+                        "uiRepresentation": "Label-Textbox"
+                    },
+                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "access": "Write",
+                    "defaultValue": "center",
+                    "group": "General",
+                    "kuid": "dc5382f550124c91a68e71c8fdb5c26f",
+                    "originalPropertyKey": "selectedTab",
+                    "propertyIndex": 1,
+                    "propertyKey": "selectedTab",
+                    "pw": {
+                        "displayName": "Selected tab",
+                        "uiRepresentation": "Label-Combobox"
+                    },
+                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
+                    "type": "list selector",
+                    "value": [
+                        "left",
+                        "center",
+                        "right"
+                    ]
+                },
+                {
+                    "access": "Write",
+                    "defaultValue": "",
+                    "group": "Tab navigation target forms (by friendly name)",
+                    "kuid": "ia39227f2134473fb7ff090463769c4d",
+                    "originalPropertyKey": "rightTabTarget",
+                    "propertyIndex": 2,
+                    "propertyKey": "rightTabTarget",
+                    "pw": {
+                        "displayName": "Right target form",
+                        "uiRepresentation": "Label-Textbox"
+                    },
+                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "access": "Write",
+                    "defaultValue": "",
+                    "group": "Tab navigation target forms (by friendly name)",
+                    "kuid": "df9b6553424948078b46fc521754fd7d",
+                    "originalPropertyKey": "leftTabTarget",
+                    "propertyIndex": 3,
+                    "propertyKey": "leftTabTarget",
+                    "pw": {
+                        "displayName": "Left target form",
+                        "uiRepresentation": "Label-Textbox"
+                    },
+                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "passthrough": [
+                {
+                    "access": "Enable",
+                    "group": "Tab labels text or i18n keys",
+                    "kuid": "i7af295eea314ed7ae6f9786d9600fd8",
+                    "originalPropertyKey": "text",
+                    "propertyIndex": 1,
+                    "propertyKey": "leftTabText",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "look",
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Left tab label",
+                        "srcWidget": "leftTabButton",
+                        "type": "string",
+                        "uiRepresentation": "Label-Textbox",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "h7c2d4f0bc054b27b974c9c2d43fede9"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Look & Feel",
+                    "kuid": "gc3d460466b14d95b8c01147ab8f6375",
+                    "originalPropertyKey": "skin",
+                    "propertyIndex": 1,
+                    "propertyKey": "selectedTabSkin",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "skin",
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Selected Tab Skin",
+                        "srcWidget": "leftTabButton",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "h7c2d4f0bc054b27b974c9c2d43fede9"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Look & Feel",
+                    "kuid": "fd4c8bcf75984e4d98b95e6828b09234",
+                    "originalPropertyKey": "skin",
+                    "propertyIndex": 2,
+                    "propertyKey": "normalTabSkin",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "skin",
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Normal Tab Skin",
+                        "srcWidget": "centerTabButton",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "i55e81f21cbf4d4485ee3a15c8af61ce"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Tab labels text or i18n keys",
+                    "kuid": "ebd1b7de650b4c2cb57d205751c75f71",
+                    "originalPropertyKey": "text",
+                    "propertyIndex": 2,
+                    "propertyKey": "rightTabText",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "look",
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Right tab label",
+                        "srcWidget": "rightTabButton",
+                        "type": "string",
+                        "uiRepresentation": "Label-Textbox",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "ea14a7a85fe74c70b7033c4b401b40e9"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Tab labels text or i18n keys",
+                    "kuid": "j15d448005594ea4a008b8cb6a29252c",
+                    "originalPropertyKey": "text",
+                    "propertyIndex": 3,
+                    "propertyKey": "centerTabText",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "look",
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Center tab label",
+                        "srcWidget": "centerTabButton",
+                        "type": "string",
+                        "uiRepresentation": "Label-Textbox",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "i55e81f21cbf4d4485ee3a15c8af61ce"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Look & Feel",
+                    "kuid": "a1bf8699c52d422eb65caea626eab41d",
+                    "originalPropertyKey": "focusSkin",
+                    "propertyIndex": 3,
+                    "propertyKey": "focusedTabSkin",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "skin",
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Focused Tab Skin",
+                        "srcWidget": "centerTabButton",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "i55e81f21cbf4d4485ee3a15c8af61ce"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Look & Feel",
+                    "kuid": "f984c77f483a4674ae28ba841fd47b67",
+                    "originalPropertyKey": "skin",
+                    "propertyIndex": 4,
+                    "propertyKey": "underlineSkin",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "skin",
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Underline Decoration Sking",
+                        "srcWidget": "tabUnderlineFlex",
+                        "wType": "FlexContainer"
+                    },
+                    "srcWgtKUID": "j6d5632f438d4bdeb6b9424d941fc6bc"
+                }
+            ]
+        },
+        "widgets": {
+            "expose": [],
+            "passthrough": []
+        }
+    },
+    "namespace": "mig82",
+    "version": "1.0.0"
+}

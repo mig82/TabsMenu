@@ -1,0 +1,102 @@
+{
+  "android": {
+    "font_name": "Karbon-Regular",
+    "font_size": 113,
+    "isForked": false
+  },
+  "androidwearos": {
+    "font_name": "default",
+    "font_size": 225,
+    "isForked": false
+  },
+  "background_color": "4b88f100",
+  "bg_type": "one",
+  "border_color": "ffffffff",
+  "border_style": "plain",
+  "border_type": 0,
+  "border_width": 0,
+  "desktopweb": {
+    "font_name": "Helvetica",
+    "font_size": 394,
+    "isForked": false
+  },
+  "fontSizeInPx": true,
+  "font_color": "e040fbff",
+  "font_name": "iphoneSystem",
+  "font_size": 113,
+  "font_style": "normal",
+  "font_weight": "normal",
+  "ipad": {
+    "font_name": "System",
+    "font_size": 225,
+    "isForked": false
+  },
+  "iphone": {
+    "font_name": "Karbon-Regular",
+    "font_size": 150,
+    "isForked": false
+  },
+  "isDefaultSkin": false,
+  "kiosk": {
+    "font_name": "None",
+    "font_size": 394,
+    "isForked": false
+  },
+  "kuid": "s594257bb01948c391dbb0dbdd6ef874",
+  "spaan": {
+    "font_name": "Karbon-Regular",
+    "font_size": 105,
+    "isForked": false
+  },
+  "spaandroidtablet": {
+    "font_name": "Helvetica",
+    "font_size": 88,
+    "isForked": false
+  },
+  "spabb": {
+    "font_name": "Karbon-Regular",
+    "font_size": 131,
+    "isForked": false
+  },
+  "spaip": {
+    "font_name": "Karbon-Regular",
+    "font_size": 131,
+    "isForked": false
+  },
+  "spaipad": {
+    "font_name": "Helvetica",
+    "font_size": 93,
+    "isForked": false
+  },
+  "spawindowstablet": {
+    "font_name": "Helvetica",
+    "font_size": 93,
+    "isForked": false
+  },
+  "spawinphone8": {
+    "font_name": "Karbon-Regular",
+    "font_size": 131,
+    "isForked": false
+  },
+  "tabrcandroid": {
+    "font_name": "default",
+    "font_size": 373,
+    "isForked": false
+  },
+  "wType": "Button",
+  "watchos": {
+    "font_name": "System",
+    "font_size": 225,
+    "isForked": false
+  },
+  "windows8": {
+    "font_name": "None",
+    "font_size": 154,
+    "isForked": false
+  },
+  "winphone8": {
+    "font_name": "Karbon-Regular",
+    "font_size": 210,
+    "isForked": false
+  }
+}
