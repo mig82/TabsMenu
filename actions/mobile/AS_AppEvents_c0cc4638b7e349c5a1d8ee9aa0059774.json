@@ -8,11 +8,15 @@
         }],
         "language": "js",
         "actions": [{
-            "id": "ADD_SNIPPET__f56b382ac0b24aa7bb66950f6e63b8d3",
-            "type": "ADD_SNIPPET",
-            "codeSnippet": "$q2k.bootstrap();",
+            "id": "INVOKE_FUNCTION___d3f3e238a15a4120abf9f871dc66656c",
+            "type": "INVOKE_FUNCTION",
+            "sequenceKUID": "bootstrap",
+            "display": "bootstrap",
+            "inputparams": [],
             "parentId": null,
-            "callbackType": null
+            "callbackType": null,
+            "disabled": null,
+            "source": "module"
         }]
     }
 }
