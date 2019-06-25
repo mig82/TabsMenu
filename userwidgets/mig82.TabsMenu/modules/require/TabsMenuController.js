@@ -82,13 +82,21 @@ define(function() {
 				"fillMode":kony.anim.FILL_MODE_FORWARDS
 			};
 
-			$q2k.animate(this.view.tabUnderlineFlex, steps, config)
-			.then(() => {
-				//$router.goto(friendlyName, {});
-				amplify.publish("TabsMenu.onTabSelected", friendlyName, {
-					priorTab: this._selectedTab
+			try{
+				var animation = kony.ui.createAnimation(steps);
+				this.view.tabUnderlineFlex.animate(animation, config, {
+					animationStart: ()=>{},
+					animationEnd: ()=>{
+						//$router.goto(friendlyName, {});
+						amplify.publish("TabsMenu.onTabSelected", friendlyName, {
+							priorTab: this._selectedTab
+						});
+					}
 				});
-			});
+			}
+			catch(e){animationEnd
+				kony.print(`Problem animating tab decoration ${widget.id}:\n\t${e}`);
+			}
 		},
 
 		constructor: function(baseConfig, layoutConfig, pspConfig) {
