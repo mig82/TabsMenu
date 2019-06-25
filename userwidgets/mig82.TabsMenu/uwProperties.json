@@ -39,7 +39,7 @@
                 },
                 {
                     "access": "Write",
-                    "defaultValue": "center",
+                    "defaultValue": "left",
                     "group": "General",
                     "kuid": "dc5382f550124c91a68e71c8fdb5c26f",
                     "originalPropertyKey": "selectedTab",

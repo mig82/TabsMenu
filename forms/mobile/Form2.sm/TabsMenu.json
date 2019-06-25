@@ -45,7 +45,8 @@
         "leftTabTarget": "Form1",
         "leftTabText": "title.left_tab",
         "rightTabTarget": "Form3",
-        "rightTabText": "title.right_tab"
+        "rightTabText": "title.right_tab",
+        "selectedTab": "center"
     },
     "enablescrolling": true,
     "id": "TabsMenu",
