@@ -83,8 +83,11 @@ define(function() {
 			};
 
 			$q2k.animate(this.view.tabUnderlineFlex, steps, config)
-			.then(function(){
-				$router.goto(friendlyName, {});
+			.then(() => {
+				//$router.goto(friendlyName, {});
+				amplify.publish("TabsMenu.onTabSelected", friendlyName, {
+					priorTab: this._selectedTab
+				});
 			});
 		},
 
