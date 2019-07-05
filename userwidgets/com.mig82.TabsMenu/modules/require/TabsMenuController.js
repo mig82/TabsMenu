@@ -9,6 +9,8 @@ define([
 	var signals = [];
 	var underline;
 
+	const doNothing = ()=>{};
+
 	return {
 
 		preShow: function(){
@@ -47,14 +49,21 @@ define([
 			tabButtons.forEach(localizeWidget);
 		},
 
+		onTouchedTab: function(touchedButton){
+
+			//First disable all buttons;
+			tabButtons.forEach((button) => {
+				button.onTouchEnd = doNothing;
+			});
+			toggleButtonSkins(touchedButton, tabButtons);
+			slide(touchedButton, this._selectedTab, tabButtons, signals, underline);
+		},
+
 		postShow: function(){
 
 			tabButtons.forEach((tabButton) => {
 				//Add touch behaviour to each tab.
-				tabButton.onTouchEnd = (touchedButton) => {
-					toggleButtonSkins(touchedButton, tabButtons);
-					slide(touchedButton, this._selectedTab, tabButtons, signals, underline);
-				};
+				tabButton.onTouchEnd = this.onTouchedTab;
 			});
 		},
 
