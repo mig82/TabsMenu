@@ -1,6 +1,7 @@
 define(function() {
 
 	var tabButtons = [];
+	var signals = [];
 	var underline;
 
 	const steps = {
@@ -53,6 +54,7 @@ define(function() {
 		steps["100"].width = alignWithWidget.width;
 
 		var index = tabButtons.indexOf(touchedButton);
+		var selected = signals[index];
 
 		try{
 			var animation = kony.ui.createAnimation(steps);
@@ -60,7 +62,7 @@ define(function() {
 				animationStart: ()=>{},
 				animationEnd: ()=>{
 					/*globals amplify*/
-					amplify.publish("TabsMenu.onTabSelected", index, {
+					amplify.publish("TabsMenu.onTabSelected", selected, {
 						priorTab: priorTab
 					});
 				}
@@ -74,6 +76,21 @@ define(function() {
 	return {
 
 		preShow: function(){
+
+			var view = this.view;
+			underline = view.tabUnderlineFlex;
+
+			tabButtons = [
+				view.leftTabButton,
+				view.centerTabButton,
+				view.rightTabButton
+			];
+
+			signals = [
+				this._leftSignal,
+				this._centerSignal,
+				this._rightSignal
+			];
 
 			switch(this._selectedTab){
 				case 'left':
@@ -90,41 +107,33 @@ define(function() {
 					resizeUnderline(this.view.centerTabFlex);
 					toggleButtonSkins(this.view.centerTabButton);
 			}
+
+			tabButtons.forEach(localizeWidget);
+		},
+
+		postShow: function(){
+
+			tabButtons.forEach((tabButton) => {
+				//Add touch behaviour to each tab.
+				tabButton.onTouchEnd = (touchedButton) => {
+					toggleButtonSkins(touchedButton);
+					slide(touchedButton, this._selectedTab);
+				};
+			});
 		},
 
 		constructor: function(/*baseConfig, layoutConfig, pspConfig*/) {
-
-			var view = this.view;
-			underline = view.tabUnderlineFlex;
-
-			/*This is the tab (left, center or right) selected when the component is created.
-			to pass it along as the prior tab when another is selected.*/
-			var priorTab = this._selectedTab;
-
-			tabButtons = [
-				view.leftTabButton,
-				view.centerTabButton,
-				view.rightTabButton
-			];
-
-			tabButtons.forEach((tabButton) => {
-
-				//Translate the widget.
-				localizeWidget(tabButton);
-
-				tabButton.onTouchEnd = (touchedButton) => {
-					toggleButtonSkins(touchedButton);
-					slide(touchedButton, priorTab);
-				};
-			});
-
-			view.preShow = this.preShow;
+			kony.mvc.patch(this);
 		},
 
 		//Logic for getters/setters of custom properties
 		initGettersSetters: function() {
-			defineGetter(this, "selectedTab", () => {return this._selectedTab;});
-			defineSetter(this, "selectedTab", (selectedTab) => {this._selectedTab = selectedTab;});
+			kony.mvc.genAccessors(this, [
+				"selectedTab",
+				"leftSignal",
+				"centerSignal",
+				"rightSignal"
+			]);
 		}
 	};
 });

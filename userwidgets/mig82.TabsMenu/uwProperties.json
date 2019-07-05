@@ -71,7 +71,7 @@
             ],
             "properties": [
                 "Tab labels text or i18n keys",
-                "Tab navigation target forms (by friendly name)",
+                "Signals sent by each tab when selected",
                 "Look & Feel"
             ],
             "widgets": []
@@ -82,12 +82,12 @@
                     "access": "Write",
                     "defaultValue": "left",
                     "group": "General",
-                    "kuid": "c52c050038bb4fb9889732dc26c88ac4",
+                    "kuid": "db0f64d66085491b8e059783b57a05a2",
                     "originalPropertyKey": "selectedTab",
                     "propertyIndex": 1,
                     "propertyKey": "selectedTab",
                     "pw": {
-                        "displayName": "Selected tab",
+                        "displayName": "Selected Tab",
                         "uiRepresentation": "Label-Combobox"
                     },
                     "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
@@ -97,6 +97,54 @@
                         "center",
                         "right"
                     ]
+                },
+                {
+                    "access": "Write",
+                    "defaultValue": "right",
+                    "group": "Signals sent by each tab when selected",
+                    "kuid": "cf8fdea9750347018aec9167d67fcc1b",
+                    "originalPropertyKey": "rightSignal",
+                    "propertyIndex": 1,
+                    "propertyKey": "rightSignal",
+                    "pw": {
+                        "displayName": "Right Signal",
+                        "uiRepresentation": "Label-Textbox"
+                    },
+                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "access": "Write",
+                    "defaultValue": "left",
+                    "group": "Signals sent by each tab when selected",
+                    "kuid": "d8ecb768148041fc8e8b4648b953d4a9",
+                    "originalPropertyKey": "leftSignal",
+                    "propertyIndex": 2,
+                    "propertyKey": "leftSignal",
+                    "pw": {
+                        "displayName": "Left Signal",
+                        "uiRepresentation": "Label-Textbox"
+                    },
+                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "access": "Write",
+                    "defaultValue": "center",
+                    "group": "Signals sent by each tab when selected",
+                    "kuid": "e3a250771cd54f4caecb30a5c9d6c872",
+                    "originalPropertyKey": "centerSignal",
+                    "propertyIndex": 3,
+                    "propertyKey": "centerSignal",
+                    "pw": {
+                        "displayName": "Center Signal",
+                        "uiRepresentation": "Label-Textbox"
+                    },
+                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
+                    "type": "string",
+                    "value": ""
                 }
             ],
             "passthrough": [
@@ -111,7 +159,7 @@
                         "access": "readwrite",
                         "category": "look",
                         "dependentKeysKUIDs": null,
-                        "displayName": "Left tab label",
+                        "displayName": "Left Tab",
                         "srcWidget": "leftTabButton",
                         "type": "string",
                         "uiRepresentation": "Label-Textbox",
@@ -164,7 +212,7 @@
                         "access": "readwrite",
                         "category": "look",
                         "dependentKeysKUIDs": null,
-                        "displayName": "Right tab label",
+                        "displayName": "Right Tab",
                         "srcWidget": "rightTabButton",
                         "type": "string",
                         "uiRepresentation": "Label-Textbox",
@@ -183,7 +231,7 @@
                         "access": "readwrite",
                         "category": "look",
                         "dependentKeysKUIDs": null,
-                        "displayName": "Center tab label",
+                        "displayName": "Center Tab",
                         "srcWidget": "centerTabButton",
                         "type": "string",
                         "uiRepresentation": "Label-Textbox",
