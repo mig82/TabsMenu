@@ -280,6 +280,6 @@
             "passthrough": []
         }
     },
-    "namespace": "mig82",
+    "namespace": "com.mig82",
     "version": "1.0.0"
 }
