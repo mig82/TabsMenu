@@ -1,6 +1,7 @@
 define(function() {
 
 	var tabButtons = [];
+	var underline;
 
 	const steps = {
 		100: {
@@ -29,6 +30,11 @@ define(function() {
 		widget.text = text;
 	}
 
+	function resizeUnderline(parentFlex){
+		underline.left = parentFlex.left;
+		underline.width = parentFlex.width;
+	}
+
 	function toggleButtonSkins(touchedButton){
 		for (var tabButton of tabButtons) {
 			if(tabButton.id === touchedButton.id){
@@ -40,7 +46,7 @@ define(function() {
 		}
 	}
 
-	function slideAndNavigate(tabUnderlineFlex, touchedButton){
+	function slide(touchedButton, priorTab){
 
 		var alignWithWidget = touchedButton.parent;
 		steps["100"].left = alignWithWidget.left;
@@ -50,12 +56,12 @@ define(function() {
 
 		try{
 			var animation = kony.ui.createAnimation(steps);
-			tabUnderlineFlex.animate(animation, config, {
+			underline.animate(animation, config, {
 				animationStart: ()=>{},
 				animationEnd: ()=>{
 					/*globals amplify*/
 					amplify.publish("TabsMenu.onTabSelected", index, {
-						//priorTab: this._selectedTab
+						priorTab: priorTab
 					});
 				}
 			});
@@ -67,38 +73,34 @@ define(function() {
 
 	return {
 
-		setSelectedTab: function(){
+		preShow: function(){
 
-			var underline = this.view.tabUnderlineFlex;
-			var leftTab = this.view.leftTabFlex;
-			var centerTab = this.view.centerTabFlex;
-			var rightTab = this.view.rightTabFlex;
-
-			//alert(underline.frame);
 			switch(this._selectedTab){
 				case 'left':
-					underline.left = leftTab.left;
-					underline.width = leftTab.width;
+					resizeUnderline(this.view.leftTabFlex);
 					toggleButtonSkins(this.view.leftTabButton);
 					break;
 
 				case 'right':
-					underline.left = rightTab.left;
-					underline.width = rightTab.width;
+					resizeUnderline(this.view.rightTabFlex);
 					toggleButtonSkins(this.view.rightTabButton);
 					break;
 
 				default: //center
-					underline.left = centerTab.left;
-					underline.width = centerTab.width;
+					resizeUnderline(this.view.centerTabFlex);
 					toggleButtonSkins(this.view.centerTabButton);
 			}
-			//alert(this._selectedTab + ' Vs ' + underline.left);
 		},
 
 		constructor: function(/*baseConfig, layoutConfig, pspConfig*/) {
 
 			var view = this.view;
+			underline = view.tabUnderlineFlex;
+
+			/*This is the tab (left, center or right) selected when the component is created.
+			to pass it along as the prior tab when another is selected.*/
+			var priorTab = this._selectedTab;
+
 			tabButtons = [
 				view.leftTabButton,
 				view.centerTabButton,
@@ -112,11 +114,11 @@ define(function() {
 
 				tabButton.onTouchEnd = (touchedButton) => {
 					toggleButtonSkins(touchedButton);
-					slideAndNavigate(view.tabUnderlineFlex, touchedButton);
+					slide(touchedButton, priorTab);
 				};
 			});
 
-			view.preShow = this.setSelectedTab;
+			view.preShow = this.preShow;
 		},
 
 		//Logic for getters/setters of custom properties
