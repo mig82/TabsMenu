@@ -1,8 +1,8 @@
 define(function(){
 
-	function onTabSelected(friendlyName, context){
-		alert(`Form1\nPrior: ${context.priorTab}\nNew2:${friendlyName}`);
-		$router.goto(friendlyName, context);
+	/*globals $router, amplify*/
+	function onTabSelected(selectedTab, context){
+		$router.goto(selectedTab, context);
 	}
 
 	return {
