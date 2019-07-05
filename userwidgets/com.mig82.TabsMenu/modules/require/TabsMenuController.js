@@ -1,77 +1,13 @@
-define(function() {
+define([
+	"./slide",
+	"./localizeWidget",
+	"./positionDecoration",
+	"./toggleButtonSkins"],
+	function(slide, localizeWidget, positionDecoration, toggleButtonSkins) {
 
 	var tabButtons = [];
 	var signals = [];
 	var underline;
-
-	const steps = {
-		100: {
-			"stepConfig": {
-				"timingFunction": kony.anim.EASE_IN_OUT
-			}
-		}
-	};
-
-	const config = {
-		"duration":0.25,
-		"iterationCount":1,
-		"delay":0,
-		"fillMode":kony.anim.FILL_MODE_FORWARDS
-	};
-
-	function localizeWidget(widget){
-		var text;
-		if(typeof kony.i18n.getLocalizedString2 === "function"){
-			text = kony.i18n.getLocalizedString2(widget.text);
-		}
-		else{
-			text = kony.i18n.getLocalizedString(widget.text);
-		}
-		//alert(widget.text);
-		widget.text = text;
-	}
-
-	function resizeUnderline(parentFlex){
-		underline.left = parentFlex.left;
-		underline.width = parentFlex.width;
-	}
-
-	function toggleButtonSkins(touchedButton){
-		for (var tabButton of tabButtons) {
-			if(tabButton.id === touchedButton.id){
-				touchedButton.skin = 'selectedTabButtonSkin';
-			}
-			else{
-				touchedButton.skin = 'normalTabButtonSkin';
-			}
-		}
-	}
-
-	function slide(touchedButton, priorTab){
-
-		var alignWithWidget = touchedButton.parent;
-		steps["100"].left = alignWithWidget.left;
-		steps["100"].width = alignWithWidget.width;
-
-		var index = tabButtons.indexOf(touchedButton);
-		var selected = signals[index];
-
-		try{
-			var animation = kony.ui.createAnimation(steps);
-			underline.animate(animation, config, {
-				animationStart: ()=>{},
-				animationEnd: ()=>{
-					/*globals amplify*/
-					amplify.publish("TabsMenu.onTabSelected", selected, {
-						priorTab: priorTab
-					});
-				}
-			});
-		}
-		catch(e){
-			kony.print(`Problem animating:\n\t${e}`);
-		}
-	}
 
 	return {
 
@@ -94,18 +30,18 @@ define(function() {
 
 			switch(this._selectedTab){
 				case 'left':
-					resizeUnderline(this.view.leftTabFlex);
-					toggleButtonSkins(this.view.leftTabButton);
+					positionDecoration(underline, view.leftTabFlex);
+					toggleButtonSkins(view.leftTabButton, tabButtons);
 					break;
 
 				case 'right':
-					resizeUnderline(this.view.rightTabFlex);
-					toggleButtonSkins(this.view.rightTabButton);
+					positionDecoration(underline, view.rightTabFlex);
+					toggleButtonSkins(view.rightTabButton, tabButtons);
 					break;
 
 				default: //center
-					resizeUnderline(this.view.centerTabFlex);
-					toggleButtonSkins(this.view.centerTabButton);
+					positionDecoration(underline, view.centerTabFlex);
+					toggleButtonSkins(view.centerTabButton, tabButtons);
 			}
 
 			tabButtons.forEach(localizeWidget);
@@ -116,8 +52,8 @@ define(function() {
 			tabButtons.forEach((tabButton) => {
 				//Add touch behaviour to each tab.
 				tabButton.onTouchEnd = (touchedButton) => {
-					toggleButtonSkins(touchedButton);
-					slide(touchedButton, this._selectedTab);
+					toggleButtonSkins(touchedButton, tabButtons);
+					slide(touchedButton, this._selectedTab, tabButtons, signals, underline);
 				};
 			});
 		},
