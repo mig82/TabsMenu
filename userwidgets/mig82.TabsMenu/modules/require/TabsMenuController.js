@@ -1,27 +1,71 @@
 define(function() {
 
+	var tabButtons = [];
+
+	const steps = {
+		100: {
+			"stepConfig": {
+				"timingFunction": kony.anim.EASE_IN_OUT
+			}
+		}
+	};
+
+	const config = {
+		"duration":0.25,
+		"iterationCount":1,
+		"delay":0,
+		"fillMode":kony.anim.FILL_MODE_FORWARDS
+	};
+
+	function localizeWidget(widget){
+		var text;
+		if(typeof kony.i18n.getLocalizedString2 === "function"){
+			text = kony.i18n.getLocalizedString2(widget.text);
+		}
+		else{
+			text = kony.i18n.getLocalizedString(widget.text);
+		}
+		//alert(widget.text);
+		widget.text = text;
+	}
+
+	function toggleButtonSkins(touchedButton){
+		for (var tabButton of tabButtons) {
+			if(tabButton.id === touchedButton.id){
+				touchedButton.skin = 'selectedTabButtonSkin';
+			}
+			else{
+				touchedButton.skin = 'normalTabButtonSkin';
+			}
+		}
+	}
+
+	function slideAndNavigate(tabUnderlineFlex, touchedButton){
+
+		var alignWithWidget = touchedButton.parent;
+		steps["100"].left = alignWithWidget.left;
+		steps["100"].width = alignWithWidget.width;
+
+		var index = tabButtons.indexOf(touchedButton);
+
+		try{
+			var animation = kony.ui.createAnimation(steps);
+			tabUnderlineFlex.animate(animation, config, {
+				animationStart: ()=>{},
+				animationEnd: ()=>{
+					/*globals amplify*/
+					amplify.publish("TabsMenu.onTabSelected", index, {
+						//priorTab: this._selectedTab
+					});
+				}
+			});
+		}
+		catch(e){
+			kony.print(`Problem animating:\n\t${e}`);
+		}
+	}
+
 	return {
-
-		localizeWidget: function(widget){
-			var text;
-			if(typeof kony.i18n.getLocalizedString2 === "function"){
-				text = kony.i18n.getLocalizedString2(widget.text);
-			}
-			else{
-				text = kony.i18n.getLocalizedString(widget.text);
-			}
-			//alert(widget.text);
-			widget.text = text;
-		},
-
-		toggleSelectedTabButton: function(widget, selected){
-			if(selected){
-				widget.skin = 'selectedTabButtonSkin';
-			}
-			else{
-				widget.skin = 'normalTabButtonSkin';
-			}
-		},
 
 		setSelectedTab: function(){
 
@@ -33,119 +77,50 @@ define(function() {
 			//alert(underline.frame);
 			switch(this._selectedTab){
 				case 'left':
-
 					underline.left = leftTab.left;
 					underline.width = leftTab.width;
-
-					this.toggleSelectedTabButton(this.view.leftTabButton, true);
-					this.toggleSelectedTabButton(this.view.centerTabButton, false);
-					this.toggleSelectedTabButton(this.view.rightTabButton, false);
+					toggleButtonSkins(this.view.leftTabButton);
 					break;
 
 				case 'right':
-
 					underline.left = rightTab.left;
 					underline.width = rightTab.width;
-
-					this.toggleSelectedTabButton(this.view.leftTabButton, false);
-					this.toggleSelectedTabButton(this.view.centerTabButton, false);
-					this.toggleSelectedTabButton(this.view.rightTabButton, true);
+					toggleButtonSkins(this.view.rightTabButton);
 					break;
 
 				default: //center
-
 					underline.left = centerTab.left;
 					underline.width = centerTab.width;
-
-					this.toggleSelectedTabButton(this.view.leftTabButton, false);
-					this.toggleSelectedTabButton(this.view.centerTabButton, true);
-					this.toggleSelectedTabButton(this.view.rightTabButton, false);
+					toggleButtonSkins(this.view.centerTabButton);
 			}
 			//alert(this._selectedTab + ' Vs ' + underline.left);
 		},
 
-		slideAndNavigate: function(friendlyName, alignWithWidget){
-			var steps = {
-				100: {
-					"left": alignWithWidget.left,
-					"width": alignWithWidget.width,
-					"stepConfig": {
-						"timingFunction": kony.anim.EASE_IN_OUT
-					}
-				}
-			};
+		constructor: function(/*baseConfig, layoutConfig, pspConfig*/) {
 
-			var config = {
-				"duration":0.25,
-				"iterationCount":1,
-				"delay":0,
-				"fillMode":kony.anim.FILL_MODE_FORWARDS
-			};
+			var view = this.view;
+			tabButtons = [
+				view.leftTabButton,
+				view.centerTabButton,
+				view.rightTabButton
+			];
 
-			try{
-				var animation = kony.ui.createAnimation(steps);
-				this.view.tabUnderlineFlex.animate(animation, config, {
-					animationStart: ()=>{},
-					animationEnd: ()=>{
-						//$router.goto(friendlyName, {});
-						amplify.publish("TabsMenu.onTabSelected", friendlyName, {
-							priorTab: this._selectedTab
-						});
-					}
-				});
-			}
-			catch(e){animationEnd
-				kony.print(`Problem animating tab decoration ${widget.id}:\n\t${e}`);
-			}
+			tabButtons.forEach((tabButton) => {
+
+				//Translate the widget.
+				localizeWidget(tabButton);
+
+				tabButton.onTouchEnd = (touchedButton) => {
+					toggleButtonSkins(touchedButton);
+					slideAndNavigate(view.tabUnderlineFlex, touchedButton);
+				};
+			});
+
+			view.preShow = this.setSelectedTab;
 		},
 
-		constructor: function(baseConfig, layoutConfig, pspConfig) {
-
-			this.localizeWidget(this.view.leftTabButton);
-			this.localizeWidget(this.view.centerTabButton);
-			this.localizeWidget(this.view.rightTabButton);
-
-			this.view.preShow = this.setSelectedTab;
-
-			this.view.leftTabButton.onTouchEnd = () => {
-
-				this.toggleSelectedTabButton(this.view.leftTabButton, true);
-				this.toggleSelectedTabButton(this.view.centerTabButton, false);
-				this.toggleSelectedTabButton(this.view.rightTabButton, false);
-
-				this.slideAndNavigate(this._leftTabTarget, this.view.leftTabFlex);
-			};
-
-			this.view.centerTabButton.onTouchEnd = () => {
-
-				this.toggleSelectedTabButton(this.view.leftTabButton, false);
-				this.toggleSelectedTabButton(this.view.centerTabButton, true);
-				this.toggleSelectedTabButton(this.view.rightTabButton, false);
-
-				this.slideAndNavigate(this._centerTabTarget, this.view.centerTabFlex);
-			};
-
-			this.view.rightTabButton.onTouchEnd = () => {
-
-				this.toggleSelectedTabButton(this.view.leftTabButton, false);
-				this.toggleSelectedTabButton(this.view.centerTabButton, false);
-				this.toggleSelectedTabButton(this.view.rightTabButton, true);
-
-				this.slideAndNavigate(this._rightTabTarget, this.view.rightTabFlex);
-			};
-		},
 		//Logic for getters/setters of custom properties
 		initGettersSetters: function() {
-
-			defineGetter(this, "leftTabTarget", () => {return this._leftTabTarget;});
-			defineSetter(this, "leftTabTarget", (friendlyName) => {this._leftTabTarget = friendlyName;});
-
-			defineGetter(this, "centerTabTarget", () => {return this._centerTabTarget;});
-			defineSetter(this, "centerTabTarget", (friendlyName) => {this._centerTabTarget = friendlyName;});
-
-			defineGetter(this, "rightTabTarget", () => {return this._rightTabTarget;});
-			defineSetter(this, "rightTabTarget", (friendlyName) => {this._rightTabTarget = friendlyName;});
-
 			defineGetter(this, "selectedTab", () => {return this._selectedTab;});
 			defineSetter(this, "selectedTab", (selectedTab) => {this._selectedTab = selectedTab;});
 		}

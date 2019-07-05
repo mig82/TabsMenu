@@ -40,11 +40,8 @@
     "clipbounds": false,
     "containerweight": 0,
     "data": {
-        "centerTabTarget": "Form2",
         "centerTabText": "title.centre_tab",
-        "leftTabTarget": "Form1",
         "leftTabText": "title.left_tab",
-        "rightTabTarget": "Form3",
         "rightTabText": "title.right_tab",
         "selectedTab": "left"
     },

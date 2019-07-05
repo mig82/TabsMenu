@@ -7,11 +7,68 @@
         },
         "events": {
             "custom": [],
-            "passthrough": []
+            "passthrough": [
+                {
+                    "access": "Enable",
+                    "group": "Events",
+                    "kuid": "c8335fc9f6dd4d228e6ff1952e3e9073",
+                    "originalPropertyKey": "onTouchEnd",
+                    "propertyIndex": 1,
+                    "propertyKey": "onLeftSelected",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "action",
+                        "displayName": "onLeftSelected",
+                        "srcWidget": "leftTabButton",
+                        "type": "action",
+                        "uiRepresentation": "Label-Label-Button-Button",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "h7c2d4f0bc054b27b974c9c2d43fede9"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Events",
+                    "kuid": "fad52289e6ce452f9d9a9e24a815232a",
+                    "originalPropertyKey": "onTouchEnd",
+                    "propertyIndex": 2,
+                    "propertyKey": "onCenterSelected",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "action",
+                        "displayName": "onCenterSelected",
+                        "srcWidget": "centerTabButton",
+                        "type": "action",
+                        "uiRepresentation": "Label-Label-Button-Button",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "i55e81f21cbf4d4485ee3a15c8af61ce"
+                },
+                {
+                    "access": "Enable",
+                    "group": "Events",
+                    "kuid": "j6902b53ee8545e3818b238e55a6f93a",
+                    "originalPropertyKey": "onTouchEnd",
+                    "propertyIndex": 3,
+                    "propertyKey": "onRightSelected",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "action",
+                        "displayName": "onRightSelected",
+                        "srcWidget": "rightTabButton",
+                        "type": "action",
+                        "uiRepresentation": "Label-Label-Button-Button",
+                        "wType": "Button"
+                    },
+                    "srcWgtKUID": "ea14a7a85fe74c70b7033c4b401b40e9"
+                }
+            ]
         },
         "groups": {
             "apis": [],
-            "events": [],
+            "events": [
+                "Events"
+            ],
             "properties": [
                 "Tab labels text or i18n keys",
                 "Tab navigation target forms (by friendly name)",
@@ -23,25 +80,9 @@
             "custom": [
                 {
                     "access": "Write",
-                    "defaultValue": "",
-                    "group": "Tab navigation target forms (by friendly name)",
-                    "kuid": "d6bed680d6d5428dbd12c1627f0e68c8",
-                    "originalPropertyKey": "centerTabTarget",
-                    "propertyIndex": 1,
-                    "propertyKey": "centerTabTarget",
-                    "pw": {
-                        "displayName": "Center target form",
-                        "uiRepresentation": "Label-Textbox"
-                    },
-                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "access": "Write",
                     "defaultValue": "left",
                     "group": "General",
-                    "kuid": "dc5382f550124c91a68e71c8fdb5c26f",
+                    "kuid": "c52c050038bb4fb9889732dc26c88ac4",
                     "originalPropertyKey": "selectedTab",
                     "propertyIndex": 1,
                     "propertyKey": "selectedTab",
@@ -56,38 +97,6 @@
                         "center",
                         "right"
                     ]
-                },
-                {
-                    "access": "Write",
-                    "defaultValue": "",
-                    "group": "Tab navigation target forms (by friendly name)",
-                    "kuid": "ia39227f2134473fb7ff090463769c4d",
-                    "originalPropertyKey": "rightTabTarget",
-                    "propertyIndex": 2,
-                    "propertyKey": "rightTabTarget",
-                    "pw": {
-                        "displayName": "Right target form",
-                        "uiRepresentation": "Label-Textbox"
-                    },
-                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
-                    "type": "string",
-                    "value": ""
-                },
-                {
-                    "access": "Write",
-                    "defaultValue": "",
-                    "group": "Tab navigation target forms (by friendly name)",
-                    "kuid": "df9b6553424948078b46fc521754fd7d",
-                    "originalPropertyKey": "leftTabTarget",
-                    "propertyIndex": 3,
-                    "propertyKey": "leftTabTarget",
-                    "pw": {
-                        "displayName": "Left target form",
-                        "uiRepresentation": "Label-Textbox"
-                    },
-                    "srcWgtKUID": "c891d728903c49ce91213d6886caf361",
-                    "type": "string",
-                    "value": ""
                 }
             ],
             "passthrough": [
