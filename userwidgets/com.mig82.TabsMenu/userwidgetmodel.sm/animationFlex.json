@@ -1,13 +1,17 @@
 {
     "DNDConfig": null,
     "__parentReadjusting__": false,
+    "_bottom_": {
+        "type": "string",
+        "value": "0%"
+    },
     "_height_": {
         "type": "string",
         "value": "100%"
     },
     "_left_": {
         "type": "string",
-        "value": "67%"
+        "value": "0dp"
     },
     "_margin_": [
         0,
@@ -24,37 +28,37 @@
     ],
     "_percent_": true,
     "_skin_": "s5928dd54a3844429a8eb5f2c2dec1cd",
-    "_top_": {
-        "type": "string",
-        "value": "0dp"
-    },
     "_width_": {
         "type": "string",
-        "value": "33%"
+        "value": "100%"
     },
     "allboxes": [],
     "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
-        "rightTabButton"
+        "leftTabFlex",
+        "centerTabFlex",
+        "rightTabFlex",
+        "tabUnderlineFlex"
     ],
     "clipbounds": true,
     "containerweight": 100,
     "enablescrolling": true,
-    "id": "rightTabFlex",
+    "id": "animationFlex",
     "info": null,
     "iscustomlayout": false,
     "isvisible": true,
-    "kuid": "ddabf2148ddb402d94ba00d1a00edf62",
+    "kuid": "ib3a7b4a02414d708ee6654e249859d0",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
-    "parent": "animationFlex",
+    "parent": "TabsMenu",
     "pf": "userwidgetmodel",
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
     "snapgridsize": 10,
     "snaptogrid": true,
     "wType": "FlexContainer",
     "widgetalignment": 1,
-    "zindex": 1
+    "zindex": 2
 }

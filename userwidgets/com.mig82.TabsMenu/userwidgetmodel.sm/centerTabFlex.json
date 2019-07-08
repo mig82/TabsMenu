@@ -48,7 +48,7 @@
     "kuid": "b780a96da27c4a3bb944d228b1fae8e2",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
-    "parent": "TabsMenu",
+    "parent": "animationFlex",
     "pf": "userwidgetmodel",
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
