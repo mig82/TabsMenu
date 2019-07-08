@@ -20,7 +20,13 @@
     "addWidgetsdone": false,
     "allboxes": [],
     "android": {
+        "inTransitionConfig": {
+            "formAnimation": 0
+        },
         "needAppMenu": false,
+        "outTransitionConfig": {
+            "formAnimation": 0
+        },
         "psp": {
             "windowSoftInputMode": 2
         }
@@ -45,7 +51,7 @@
     },
     "displayorientation": 1,
     "enabledforidletimeout": false,
-    "friendlyName": "Form2",
+    "friendlyName": "f2",
     "id": "Form2",
     "info": null,
     "initdone": false,
@@ -58,7 +64,17 @@
         "titleBar": false
     },
     "iphone": {
+        "inTransitionConfig": {
+            "transitionDirection": "none",
+            "transitionDuration": 0.3,
+            "transitionEffect": "transitionFade"
+        },
         "needAppMenu": false,
+        "outTransitionConfig": {
+            "transitionDirection": "none",
+            "transitionDuration": 0.3,
+            "transitionEffect": "transitionFade"
+        },
         "psp": {
             "inputAccessoryViewType": 4,
             "titleBarAttributes": {
@@ -102,6 +118,14 @@
     "retainscrollposition": false,
     "snapgridsize": 10,
     "snaptogrid": true,
+    "spa": {
+        "inTransitionConfig": {
+            "formTransition": "none"
+        },
+        "outTransitionConfig": {
+            "formTransition": "none"
+        }
+    },
     "spaan": {
         "needAppMenu": false
     },
@@ -131,6 +155,16 @@
         "needAppMenu": false
     },
     "winphone8": {
-        "needAppMenu": false
+        "inTransitionConfig": {
+            "inTransition": "none",
+            "transitionMode": "none",
+            "transitionSpeed": 0
+        },
+        "needAppMenu": false,
+        "outTransitionConfig": {
+            "outTransition": "none",
+            "transitionMode": "none",
+            "transitionSpeed": 0
+        }
     }
 }
