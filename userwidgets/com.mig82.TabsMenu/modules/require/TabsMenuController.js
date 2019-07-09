@@ -2,9 +2,11 @@ define([
 	"./slide",
 	"./localizeWidget",
 	"./positionDecoration",
-	"./toggleButtonSkins"],
-	function(slide, localizeWidget, positionDecoration, toggleButtonSkins) {
+	"./toggleButtonSkins",
+	"./slideTabs"],
+	function(slide, localizeWidget, positionDecoration, toggleButtonSkins, slideTabs) {
 
+	var view;
 	var tabButtons = [];
 	var signals = [];
 	var underline;
@@ -15,7 +17,7 @@ define([
 
 		preShow: function(){
 
-			var view = this.view;
+			view = this.view;
 			underline = view.tabUnderlineFlex;
 
 			tabButtons = [
@@ -65,6 +67,10 @@ define([
 				//Add touch behaviour to each tab.
 				tabButton.onTouchEnd = this.onTouchedTab;
 			});
+		},
+
+		preHide: function(){
+			slideTabs(false, view.animationFlex);
 		},
 
 		constructor: function(/*baseConfig, layoutConfig, pspConfig*/) {

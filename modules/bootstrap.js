@@ -1,4 +1,5 @@
+/*exported bootstrap*/
 function bootstrap(){
-	/*glogals amplify*/
+	/*globals amplify*/
 	amplify.allowDuplicates(false);
 }

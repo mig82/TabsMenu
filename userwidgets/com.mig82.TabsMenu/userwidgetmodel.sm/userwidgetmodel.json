@@ -26,7 +26,9 @@
     "containerweight": 100,
     "displayorientation": 3,
     "enabledforidletimeout": false,
-    "globalUserWidgetRefs": [],
+    "globalUserWidgetRefs": [
+        "u329b55dead346fe98f80250e7068485"
+    ],
     "id": "userwidgetmodel",
     "info": null,
     "initdone": false,

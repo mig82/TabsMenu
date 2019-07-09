@@ -1,9 +1,19 @@
 {
   "android": {
-    "font_name": "default"
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
+    "font_name": "default",
+    "isForked": true
   },
   "androidwearos": {
-    "font_name": "default"
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
+    "font_name": "default",
+    "isForked": true
   },
   "background_color": "ffffffff",
   "bg_type": "one",
@@ -20,10 +30,14 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "ipad": {
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
     "font_name": "System",
     "isForked": true,
     "shadow": {
@@ -32,10 +46,14 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "iphone": {
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
     "font_name": "System",
     "isForked": true,
     "shadow": {
@@ -44,12 +62,17 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "isDefaultSkin": false,
   "kiosk": {
-    "font_name": "None"
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
+    "font_name": "None",
+    "isForked": true
   },
   "kuid": "sa82723b133b4c758cace2be52779667",
   "spaan": {
@@ -61,7 +84,7 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "spaandroidtablet": {
@@ -73,7 +96,7 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "spabb": {
@@ -85,7 +108,7 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "spaip": {
@@ -97,7 +120,7 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "spaipad": {
@@ -109,7 +132,7 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "spawindowstablet": {
@@ -121,7 +144,7 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "spawinphone8": {
@@ -133,20 +156,35 @@
       "inner": false,
       "nm": 0,
       "x": 0,
-      "y": 1
+      "y": 0
     }
   },
   "tabrcandroid": {
-    "font_name": "default"
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
+    "font_name": "default",
+    "isForked": true
   },
   "wType": "FlexContainer",
   "watchos": {
     "font_name": "System"
   },
   "windows8": {
-    "font_name": "None"
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
+    "font_name": "None",
+    "isForked": true
   },
   "winphone8": {
-    "font_name": "None"
+    "border_color": "000000ff",
+    "border_style": "plain",
+    "border_type": 0,
+    "border_width": 0,
+    "font_name": "None",
+    "isForked": true
   }
 }
