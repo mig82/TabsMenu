@@ -5,6 +5,8 @@ Component* using *Kony Visualizer*. The Visualizer project just serves as a
 wrapper to demo the component. The component -called
 `com.mig82.TabsMenu` is the real focus of this exercise.
 
+![Tabs Menu](./pics/TabsMenu_pic1.png)
+
 ## External Dependencies
 
 This project uses AmplifyJs's core module. This is bundled within the component
